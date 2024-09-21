@@ -10,6 +10,10 @@ class UserSerializer(serializers.ModelSerializer):
         }
 
     def create(self, validated_data):
+        # Si el rol es 'admin', establecer is_staff como True
+        if validated_data.get('role') == 'admin':
+            validated_data['is_staff'] = True
+
         user = User.objects.create_user(
             email=validated_data['email'],
             username=validated_data['username'],
