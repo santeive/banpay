@@ -1,0 +1,17 @@
+celery==5.2.7
+Django==4.1.2
+gunicorn==21.2.0
+psycopg2-binary==2.9.5
+python-decouple==3.6
+redis==4.3.4
+djangorestframework==3.14.0
+djangorestframework-simplejwt==5.3.1
+django-extensions
+pillow==10.2.0
+shortuuid==1.0.11
+django-storages
+boto3
+dj-database-url
+django-rest-passwordreset==1.4.1
+pytest==8.2.1
+pytest-django==4.8.0
