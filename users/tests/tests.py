@@ -41,3 +41,18 @@ class UserTests(APITestCase):
         }
         response = self.client.post(url, data)
         self.assertNotEqual(response.status_code, status.HTTP_201_CREATED)
+
+    def test_list_users(self):
+        url = reverse('users-list')
+        response = self.client.get(url)
+        self.assertEqual(response.status_code, status.HTTP_200_OK)
+        self.assertEqual(len(response.data), User.objects.count())
+    
+    def test_retrieve_user(self):
+        url = reverse('users-detail', args=[self.admin_user.id])
+        response = self.client.get(url)
+        self.assertEqual(response.status_code, status.HTTP_200_OK)
+        self.assertEqual(response.data['email'], self.admin_user.email)
+
+    
+
