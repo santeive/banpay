@@ -20,7 +20,8 @@ RUN pip install -r requirements.txt
 COPY . /app
 
 # collect static files
-RUN python manage.py collectstatic --noinput
+#RUN mkdir -p /app/staticfiles
+#RUN python manage.py collectstatic --noinput
 
 # run migrations
 CMD ["python", "manage.py", "migrate"]
