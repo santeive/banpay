@@ -168,8 +168,3 @@ EMAIL_BACKEND = "django.core.mail.backends.console.EmailBackend"
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = BASE_DIR / 'media'
-
-S3_KEY_ID = config('S3_KEY_ID')
-S3_SECRET_ACCESS_KEY = config('S3_SECRET_ACCESS_KEY')
-S3_BUCKET_NAME = config('S3_BUCKET_NAME')
-S3_REGION_NAME = config('S3_REGION_NAME')
