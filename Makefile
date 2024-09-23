@@ -19,4 +19,5 @@ createsuperuser:
 show_urls:
 	docker compose exec web python manage.py show_urls
 
-#tests:
+tests:
+	docker compose exec web python manage.py test
