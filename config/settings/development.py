@@ -17,4 +17,4 @@ MEDIA_ROOT = os.path.join(BASE_DIR, "../", "mediafiles")
 STATIC_URL = "static/"
 STATIC_ROOT = os.path.join(BASE_DIR, "../", "staticfiles")
 
-DATABASES["default"] = dj_database_url.parse("postgres://billy_app_postgres_user:2Rr9UIZvNMra6Si0r3tKkjce7IYE0iHc@dpg-covbic021fec73fi1hu0-a.oregon-postgres.render.com/billy_app_postgres")
+DATABASES["default"] = dj_database_url.parse("postgresql://banpay_django_render_user:W6KHzbOnd3tM7QKGXyFOTrz9psH0Y2yu@dpg-crnp8me8ii6s73eud0r0-a.oregon-postgres.render.com/banpay_django_render")
