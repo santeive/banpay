@@ -2,6 +2,8 @@
 User and ApiUser views
 """
 
+import requests
+
 # Models
 from .models import User
 from .serializers import UserSerializer
@@ -16,8 +18,21 @@ from rest_framework_simplejwt.tokens import RefreshToken
 from rest_framework.views import APIView
 from rest_framework import status
 
-# python
-import requests
+from rest_framework_simplejwt.views import TokenObtainPairView
+
+class CustomTokenObtainPairView(TokenObtainPairView):
+    def post(self, request, *args, **kwargs):
+        serializer = self.get_serializer(data=request.data)
+
+        try:
+            serializer.is_valid(raise_exception=True)
+        except:
+            return Response({
+                "error_message": "The credentials provided are incorrect. Please verify your email and password."
+            }, status=status.HTTP_401_UNAUTHORIZED)
+
+        return Response(serializer.validated_data, status=status.HTTP_200_OK)
+
 
 class UserViewSet(viewsets.ModelViewSet):
     queryset = User.objects.all()
